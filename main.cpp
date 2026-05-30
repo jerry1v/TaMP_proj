@@ -19,22 +19,38 @@ using namespace std;
 
 void aesEncrypt(const string& data)
 {
-    cout << "[AES] Шифрование: " << data << endl;
+    DatabaseManager::getInstance()
+        .setValue("last_aes", data);
+
+    cout << "[AES] Шифрование: "
+         << data << endl;
 }
 
 void sha1Hash(const string& data)
 {
-    cout << "[SHA1] Хэширование: " << data << endl;
+    DatabaseManager::getInstance()
+        .setValue("last_sha1", data);
+
+    cout << "[SHA1] Хэширование: "
+         << data << endl;
 }
 
 void newtonMethod()
 {
-    cout << "[NEWTON] Метод Ньютона вызван" << endl;
+    DatabaseManager::getInstance()
+        .setValue("last_method", "NEWTON");
+
+    cout << "[NEWTON] Метод Ньютона вызван"
+         << endl;
 }
 
 void hideMessage(const string& data)
 {
-    cout << "[STEGO] Внедрение сообщения: " << data << endl;
+    DatabaseManager::getInstance()
+        .setValue("last_stego", data);
+
+    cout << "[STEGO] Внедрение сообщения: "
+         << data << endl;
 }
 
 // =======================
