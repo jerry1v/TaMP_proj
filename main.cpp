@@ -8,7 +8,7 @@
 #include <iostream>
 #include <string>
 #include <winsock2.h>
-
+#include <thread>
 #pragma comment(lib, "ws2_32.lib")
 
 using namespace std;
@@ -93,6 +93,40 @@ void parseRequest(const string& request)
         cout << "Неизвестная команда" << endl;
     }
 }
+void handleClient(SOCKET clientSocket)
+{
+    char buffer[1024];
+
+    while (true)
+    {
+        memset(buffer, 0, sizeof(buffer));
+
+        int bytesReceived =
+            recv(clientSocket,
+                 buffer,
+                 sizeof(buffer),
+                 0);
+
+        if (bytesReceived <= 0)
+        {
+            cout << "Клиент отключился" << endl;
+            break;
+        }
+
+        string request(buffer);
+
+        parseRequest(request);
+
+        string response = "OK";
+
+        send(clientSocket,
+             response.c_str(),
+             response.size(),
+             0);
+    }
+
+    closesocket(clientSocket);
+}
 
 // =======================
 // Основной сервер
@@ -133,30 +167,27 @@ int main()
     cout << "Сервер запущен на порту 8080..." << endl;
 
     // Accept
-    clientSocket = accept(serverSocket, (sockaddr*)&clientAddr, &clientSize);
-
-    cout << "Клиент подключен!" << endl;
-
     while (true)
+{
+    clientSocket =
+        accept(serverSocket,
+               (sockaddr*)&clientAddr,
+               &clientSize);
+
+    if (clientSocket == INVALID_SOCKET)
     {
-        memset(buffer, 0, sizeof(buffer));
-
-        int bytesReceived = recv(clientSocket, buffer, sizeof(buffer), 0);
-
-        if (bytesReceived <= 0)
-        {
-            cout << "Клиент отключился" << endl;
-            break;
-        }
-
-        string request(buffer);
-
-        parseRequest(request);
-
-        string response = "OK";
-        send(clientSocket, response.c_str(), response.size(), 0);
+        continue;
     }
 
+    cout << "Подключен новый клиент"
+         << endl;
+
+    thread clientThread(
+        handleClient,
+        clientSocket);
+
+    clientThread.detach();
+}
     closesocket(clientSocket);
     closesocket(serverSocket);
 
