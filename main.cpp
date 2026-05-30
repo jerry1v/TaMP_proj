@@ -5,6 +5,8 @@
 // Компиляция:
 // g++ main.cpp -lws2_32 -o server.exe
 
+#include "databasemanager.h"
+#include <sstream>
 #include <iostream>
 #include <string>
 #include <winsock2.h>
@@ -57,42 +59,72 @@ void hideMessage(const string& data)
 // Парсер запросов
 // =======================
 
-void parseRequest(const string& request)
+string parseRequest(const string& request)
 {
     cout << "Получен запрос: " << request << endl;
 
-    // AES
-    if (request.find("AES ") == 0)
+    stringstream ss(request);
+
+    string command;
+    ss >> command;
+
+    if (command == "REGISTER")
     {
-        string data = request.substr(4);
-        aesEncrypt(data);
+        string login;
+        string password;
+
+        ss >> login;
+        ss >> password;
+
+        bool result =
+            DatabaseManager::getInstance()
+            .registerUser(login, password);
+
+        return result ?
+            "REGISTER_SUCCESS" :
+            "REGISTER_FAILED";
     }
 
-    // SHA1
-    else if (request.find("SHA1 ") == 0)
+    if (command == "LOGIN")
     {
-        string data = request.substr(5);
-        sha1Hash(data);
+        string login;
+        string password;
+
+        ss >> login;
+        ss >> password;
+
+        bool result =
+            DatabaseManager::getInstance()
+            .loginUser(login, password);
+
+        return result ?
+            "LOGIN_SUCCESS" :
+            "LOGIN_FAILED";
     }
 
-    // NEWTON
-    else if (request == "NEWTON")
+    if (command == "AES")
     {
-        newtonMethod();
+        return "AES_STUB";
     }
 
-    // STEGO
-    else if (request.find("STEGO ") == 0)
+    if (command == "SHA1")
     {
-        string data = request.substr(6);
-        hideMessage(data);
+        return "SHA1_STUB";
     }
 
-    else
+    if (command == "NEWTON")
     {
-        cout << "Неизвестная команда" << endl;
+        return "NEWTON_STUB";
     }
+
+    if (command == "STEGO")
+    {
+        return "STEGO_STUB";
+    }
+
+    return "UNKNOWN_COMMAND";
 }
+
 void handleClient(SOCKET clientSocket)
 {
     char buffer[1024];
@@ -115,9 +147,8 @@ void handleClient(SOCKET clientSocket)
 
         string request(buffer);
 
-        parseRequest(request);
-
-        string response = "OK";
+        string response =
+			parseRequest(request);
 
         send(clientSocket,
              response.c_str(),
