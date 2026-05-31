@@ -2,10 +2,13 @@
 #define CLIENT_H
 
 #include <QString>
+#include <winsock2.h>
 
 class Client
 {
 private:
+    SOCKET clientSocket;
+
     Client();
 
 public:
@@ -16,6 +19,9 @@ public:
 
     bool connectToServer();
 
+    QString sendRequest(
+        const QString& request);
+
     QString registerUser(
         const QString& login,
         const QString& password);
@@ -23,17 +29,6 @@ public:
     QString loginUser(
         const QString& login,
         const QString& password);
-
-    QString sendAES(
-        const QString& text);
-
-    QString sendSHA1(
-        const QString& text);
-
-    QString sendNewton();
-
-    QString sendStego(
-        const QString& text);
 };
 
 #endif

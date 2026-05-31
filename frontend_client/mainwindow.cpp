@@ -8,6 +8,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+	
+	Client::getInstance().connectToServer();
 }
 
 MainWindow::~MainWindow()
@@ -18,30 +20,27 @@ MainWindow::~MainWindow()
 void MainWindow::on_registerButton_clicked()
 {
     QString result =
-		Client::getInstance()
-		.registerUser(
-			ui->loginEdit->text(),
-			ui->passwordEdit->text());
+        Client::getInstance().registerUser(
+            ui->loginEdit->text(),
+            ui->passwordEdit->text());
 
-	ui->resultText->append(result);
+    ui->resultText->append(result);
 }
 
 void MainWindow::on_loginButton_clicked()
 {
     QString result =
-		Client::getInstance()
-		.loginUser(
-			ui->loginEdit->text(),
-			ui->passwordEdit->text());
+        Client::getInstance().loginUser(
+            ui->loginEdit->text(),
+            ui->passwordEdit->text());
 
-	ui->resultText->append(result);
+    ui->resultText->append(result);
 }
 
 void MainWindow::on_aesButton_clicked()
 {
     QString result =
-		Client::getInstance()
-		.sendAES("test");
+		Client::getInstance().sendAES("test");
 
 	ui->resultText->append(result);
 }
@@ -49,8 +48,7 @@ void MainWindow::on_aesButton_clicked()
 void MainWindow::on_sha1Button_clicked()
 {
     QString result =
-		Client::getInstance()
-		.sendSHA1("test");
+		Client::getInstance().sendSHA1("test");
 
 	ui->resultText->append(result);
 }
@@ -58,8 +56,7 @@ void MainWindow::on_sha1Button_clicked()
 void MainWindow::on_newtonButton_clicked()
 {
     QString result =
-		Client::getInstance()
-		.sendNewton();
+		Client::getInstance().sendNewton();
 
 	ui->resultText->append(result);
 }
@@ -67,8 +64,7 @@ void MainWindow::on_newtonButton_clicked()
 void MainWindow::on_stegoButton_clicked()
 {
     QString result =
-		Client::getInstance()
-		.sendStego("test");
+		Client::getInstance().sendStego("test");
 
 	ui->resultText->append(result);
 }
