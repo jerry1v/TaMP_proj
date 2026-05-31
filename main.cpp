@@ -59,6 +59,11 @@ void hideMessage(const string& data)
 // Парсер запросов
 // =======================
 
+/**
+ * @brief Разбор запроса клиента.
+ * @param request Запрос клиента.
+ * @return Ответ сервера.
+ */
 string parseRequest(const string& request)
 {
     cout << "Получен запрос: " << request << endl;
@@ -125,6 +130,10 @@ string parseRequest(const string& request)
     return "UNKNOWN_COMMAND";
 }
 
+/**
+ * @brief Обработка подключенного клиента.
+ * @param clientSocket Сокет клиента.
+ */
 void handleClient(SOCKET clientSocket)
 {
     char buffer[1024];
@@ -163,6 +172,9 @@ void handleClient(SOCKET clientSocket)
 // Основной сервер
 // =======================
 
+/**
+ * @brief Точка входа сервера.
+ */
 int main()
 {
     WSADATA wsaData;

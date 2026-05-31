@@ -9,6 +9,11 @@ struct User
     std::string password;
 };
 
+/**
+ * @brief Singleton база данных сервера.
+ *
+ * Хранит пользователей и служебные данные.
+ */
 class DatabaseManager
 {
 private:
@@ -18,6 +23,9 @@ private:
     DatabaseManager();
 
 public:
+	/**
+	* @brief Получить экземпляр Singleton.
+	*/
     static DatabaseManager& getInstance();
 
     DatabaseManager(const DatabaseManager&) = delete;
@@ -27,11 +35,21 @@ public:
                   const std::string& value);
 
     std::string getValue(const std::string& key);
-
+	/**
+	* @brief Регистрация пользователя.
+	* @param login Логин
+	* @param password Пароль
+	* @return true если успешно
+	*/
     bool registerUser(
         const std::string& login,
         const std::string& password);
-
+	/**
+	* @brief Авторизация пользователя.
+	* @param login Логин
+	* @param password Пароль
+	* @return true если данные верны
+	*/
     bool loginUser(
         const std::string& login,
         const std::string& password);

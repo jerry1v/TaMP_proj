@@ -1,0 +1,92 @@
+\doxysection{Database\+Manager Class Reference}
+\hypertarget{class_database_manager}{}\label{class_database_manager}\index{DatabaseManager@{DatabaseManager}}
+
+
+Singleton база данных сервера.  
+
+
+
+
+{\ttfamily \+\#include $<$databasemanager.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_database_manager_aefa3d6eae7782904f5d758462b573b1e}\label{class_database_manager_aefa3d6eae7782904f5d758462b573b1e} 
+{\bfseries Database\+Manager} (const \doxymbox{\hyperlink{class_database_manager}{Database\+Manager}} \&)=delete
+\item 
+\Hypertarget{class_database_manager_ab5a4c00314aae0887ac7a1495f6b803c}\label{class_database_manager_ab5a4c00314aae0887ac7a1495f6b803c} 
+\doxymbox{\hyperlink{class_database_manager}{Database\+Manager}} \& {\bfseries operator=} (const \doxymbox{\hyperlink{class_database_manager}{Database\+Manager}} \&)=delete
+\item 
+\Hypertarget{class_database_manager_a3d701062630487eb93231fc1a9466ed4}\label{class_database_manager_a3d701062630487eb93231fc1a9466ed4} 
+void {\bfseries set\+Value} (const std::\+string \&key, const std::\+string \&value)
+\item 
+\Hypertarget{class_database_manager_aaefad984c7f19c27b5dcc8189657c8a6}\label{class_database_manager_aaefad984c7f19c27b5dcc8189657c8a6} 
+std::\+string {\bfseries get\+Value} (const std::\+string \&key)
+\item 
+bool \doxymbox{\hyperlink{class_database_manager_a996510c046216ec129fe6231656d667e}{register\+User}} (const std::\+string \&login, const std::\+string \&password)
+\begin{DoxyCompactList}\small\item\em Регистрация пользователя. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_database_manager_ad721d77c909b41223488543de1ae2c78}{login\+User}} (const std::\+string \&login, const std::\+string \&password)
+\begin{DoxyCompactList}\small\item\em Авторизация пользователя. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_database_manager_a40dbc3c1489575c5629b20f8f076cc3a}\label{class_database_manager_a40dbc3c1489575c5629b20f8f076cc3a} 
+static \doxymbox{\hyperlink{class_database_manager}{Database\+Manager}} \& {\bfseries get\+Instance} ()
+\begin{DoxyCompactList}\small\item\em Получить экземпляр Singleton. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Singleton база данных сервера. 
+
+Хранит пользователей и служебные данные. 
+
+\label{class_database_manager_doc-func-members}
+\Hypertarget{class_database_manager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_database_manager_ad721d77c909b41223488543de1ae2c78}\index{DatabaseManager@{DatabaseManager}!loginUser@{loginUser}}
+\index{loginUser@{loginUser}!DatabaseManager@{DatabaseManager}}
+\doxysubsubsection{\texorpdfstring{loginUser()}{loginUser()}}
+{\footnotesize\ttfamily \label{class_database_manager_ad721d77c909b41223488543de1ae2c78} 
+bool Database\+Manager::\+login\+User (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{login}{, }\item[{const std::\+string \&}]{password}{}\end{DoxyParamCaption})}
+
+
+
+Авторизация пользователя. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em login} & Логин \\
+\hline
+{\em password} & Пароль \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true если данные верны 
+\end{DoxyReturn}
+\Hypertarget{class_database_manager_a996510c046216ec129fe6231656d667e}\index{DatabaseManager@{DatabaseManager}!registerUser@{registerUser}}
+\index{registerUser@{registerUser}!DatabaseManager@{DatabaseManager}}
+\doxysubsubsection{\texorpdfstring{registerUser()}{registerUser()}}
+{\footnotesize\ttfamily \label{class_database_manager_a996510c046216ec129fe6231656d667e} 
+bool Database\+Manager::\+register\+User (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{login}{, }\item[{const std::\+string \&}]{password}{}\end{DoxyParamCaption})}
+
+
+
+Регистрация пользователя. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em login} & Логин \\
+\hline
+{\em password} & Пароль \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true если успешно 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+databasemanager.\+h\item 
+databasemanager.\+cpp\end{DoxyCompactItemize}
