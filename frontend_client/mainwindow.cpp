@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
-
+#include "client.h"
 #include <QString>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -17,30 +17,58 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_registerButton_clicked()
 {
-    ui->resultText->append("Запрос на регистрацию");
+    QString result =
+		Client::getInstance()
+		.registerUser(
+			ui->loginEdit->text(),
+			ui->passwordEdit->text());
+
+	ui->resultText->append(result);
 }
 
 void MainWindow::on_loginButton_clicked()
 {
-    ui->resultText->append("Запрос на авторизацию");
+    QString result =
+		Client::getInstance()
+		.loginUser(
+			ui->loginEdit->text(),
+			ui->passwordEdit->text());
+
+	ui->resultText->append(result);
 }
 
 void MainWindow::on_aesButton_clicked()
 {
-    ui->resultText->append("AES шифрование");
+    QString result =
+		Client::getInstance()
+		.sendAES("test");
+
+	ui->resultText->append(result);
 }
 
 void MainWindow::on_sha1Button_clicked()
 {
-    ui->resultText->append("SHA1 хэширование");
+    QString result =
+		Client::getInstance()
+		.sendSHA1("test");
+
+	ui->resultText->append(result);
 }
 
 void MainWindow::on_newtonButton_clicked()
 {
-    ui->resultText->append("Метод Ньютона");
+    QString result =
+		Client::getInstance()
+		.sendNewton();
+
+	ui->resultText->append(result);
 }
 
 void MainWindow::on_stegoButton_clicked()
 {
-    ui->resultText->append("Стеганография");
+    QString result =
+		Client::getInstance()
+		.sendStego("test");
+
+	ui->resultText->append(result);
 }
