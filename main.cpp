@@ -11,6 +11,7 @@
 #include <string>
 #include <winsock2.h>
 #include <thread>
+#include <cmath>
 #pragma comment(lib, "ws2_32.lib")
 
 using namespace std;
@@ -19,40 +20,57 @@ using namespace std;
 // Заглушки функций
 // =======================
 
-void aesEncrypt(const string& data)
+string aesEncrypt(const string& data)
 {
-    DatabaseManager::getInstance()
-        .setValue("last_aes", data);
+    string result = data;
 
-    cout << "[AES] Шифрование: "
-         << data << endl;
+    const string key = "AESKEY";
+
+    for (size_t i = 0; i < result.size(); i++)
+    {
+        result[i] ^= key[i % key.size()];
+    }
+
+    return result;
 }
 
-void sha1Hash(const string& data)
+string sha1Hash(const string& text)
 {
-    DatabaseManager::getInstance()
-        .setValue("last_sha1", data);
+    unsigned long hash = 0;
 
-    cout << "[SHA1] Хэширование: "
-         << data << endl;
+    for (char c : text)
+    {
+        hash = hash * 31 + c;
+    }
+
+    return to_string(hash);
 }
 
-void newtonMethod()
+string newtonMethod(double number)
 {
-    DatabaseManager::getInstance()
-        .setValue("last_method", "NEWTON");
+    if (number <= 0)
+    {
+        return "ERROR";
+    }
 
-    cout << "[NEWTON] Метод Ньютона вызван"
-         << endl;
+    double x = number;
+
+    for (int i = 0; i < 20; i++)
+    {
+        x = 0.5 * (x + number / x);
+    }
+
+    return to_string(x);
 }
 
-void hideMessage(const string& data)
+string hideMessage(const string& data)
 {
     DatabaseManager::getInstance()
-        .setValue("last_stego", data);
+        .setValue(
+            "hidden_message",
+            data);
 
-    cout << "[STEGO] Внедрение сообщения: "
-         << data << endl;
+    return "MESSAGE_HIDDEN";
 }
 
 // =======================
@@ -108,26 +126,40 @@ string parseRequest(const string& request)
     }
 
     if (command == "AES")
-    {
-        return "AES_STUB";
-    }
+	{
+		string text;
+
+		getline(ss, text);
+
+		return aesEncrypt(text);
+	}
 
     if (command == "SHA1")
-    {
-        return "SHA1_STUB";
-    }
+	{
+		string text;
+
+		getline(ss, text);
+
+		return sha1Hash(text);
+	}
 
     if (command == "NEWTON")
-    {
-        return "NEWTON_STUB";
-    }
+	{
+		double number;
+
+		ss >> number;
+
+		return newtonMethod(number);
+	}
 
     if (command == "STEGO")
-    {
-        return "STEGO_STUB";
-    }
+	{
+		string text;
 
-    return "UNKNOWN_COMMAND";
+		getline(ss, text);
+
+		return hideMessage(text);
+	}
 }
 
 /**

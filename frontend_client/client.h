@@ -29,6 +29,8 @@ public:
     QString loginUser(
         const QString& login,
         const QString& password);
+		
+	QString sendNewton(double number);
 };
 
 #endif

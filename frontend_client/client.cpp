@@ -95,3 +95,10 @@ QString Client::loginUser(
         " " +
         password);
 }
+
+QString Client::sendNewton(double number)
+{
+    return sendRequest(
+        "NEWTON " +
+        QString::number(number));
+}		
