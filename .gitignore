@@ -1,0 +1,45 @@
+# Build folders
+build/
+Build/
+Debug/
+Release/
+
+# Qt Creator
+*.pro.user
+*.pro.user.*
+*.qtc_clangd
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Visual Studio
+.vs/
+*.vcxproj.user
+
+# Object files
+*.o
+*.obj
+
+# Libraries
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+
+# Qt generated files
+ui_*.h
+moc_*.cpp
+moc_*.h
+qrc_*.cpp
+
+# Logs
+*.log
+
+# Doxygen generated docs
+docs/doxygen/html/
+docs/doxygen/latex/
