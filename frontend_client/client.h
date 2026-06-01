@@ -35,6 +35,11 @@ public:
 	QString currentRole;
 	
 	QString getRole() const;
+	
+	QString getUsers();
+
+	QString deleteUser(
+		const QString& login);
 }
 
 #endif

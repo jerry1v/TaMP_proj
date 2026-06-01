@@ -118,3 +118,16 @@ QString Client::getRole() const
 {
     return currentRole;
 }
+
+QString Client::getUsers()
+{
+    return sendRequest("USERS");
+}
+
+QString Client::deleteUser(
+    const QString& login)
+{
+    return sendRequest(
+        "DELETE " +
+        login);
+}

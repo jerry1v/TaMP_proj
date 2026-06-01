@@ -114,6 +114,27 @@ string parseRequest(const string& request)
 
 		return hideMessage(text);
 	}
+	
+	if (command == "USERS")
+	{
+		return DatabaseManager::getInstance()
+			.getUsersList();
+	}
+	
+	if (command == "DELETE")
+	{
+		string login;
+
+		ss >> login;
+
+		bool result =
+			DatabaseManager::getInstance()
+			.deleteUser(login);
+
+		return result ?
+			"DELETE_SUCCESS" :
+			"DELETE_FAILED";
+	}
 }
 
 /**

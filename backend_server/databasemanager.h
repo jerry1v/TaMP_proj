@@ -54,6 +54,12 @@ public:
     bool loginUser(
         const std::string& login,
         const std::string& password);
+		
 	std::string getUserRole(
 		std::string& login);
+		
+	std::string getUsersList();
+
+	bool deleteUser(
+		const std::string& login);
 }

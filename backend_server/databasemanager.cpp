@@ -81,3 +81,33 @@ bool DatabaseManager::loginUser(
 
     return it->second.password == password;
 }
+
+std::string DatabaseManager::getUsersList()
+{
+    std::string result;
+
+    for (const auto& pair : users)
+    {
+        result += pair.second.login;
+        result += " ";
+        result += pair.second.role;
+        result += "\n";
+    }
+
+    return result;
+}
+
+bool DatabaseManager::deleteUser(
+    const std::string& login)
+{
+    auto it = users.find(login);
+
+    if (it == users.end())
+    {
+        return false;
+    }
+
+    users.erase(it);
+
+    return true;
+}
