@@ -2,6 +2,7 @@
 #include "./ui_mainwindow.h"
 #include "client.h"
 #include <QString>
+#include "client.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -67,4 +68,42 @@ void MainWindow::on_stegoButton_clicked()
 		Client::getInstance().sendStego("test");
 
 	ui->resultText->append(result);
+}
+
+void MainWindow::on_showUsersButton_clicked()
+{
+    QString response =
+        Client::getInstance()
+        .getUsers();
+
+    QStringList rows =
+        response.split("\n");
+
+    ui->tableUsers->setColumnCount(2);
+
+    ui->tableUsers->setHorizontalHeaderLabels(
+        {"Login", "Role"});
+
+    ui->tableUsers->setRowCount(rows.size());
+
+    for (int i = 0; i < rows.size(); i++)
+    {
+        QStringList parts =
+            rows[i].split(" ");
+
+        if (parts.size() < 2)
+        {
+            continue;
+        }
+
+        ui->tableUsers->setItem(
+            i,
+            0,
+            new QTableWidgetItem(parts[0]));
+
+        ui->tableUsers->setItem(
+            i,
+            1,
+            new QTableWidgetItem(parts[1]));
+    }
 }

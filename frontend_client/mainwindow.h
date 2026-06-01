@@ -25,6 +25,8 @@ private slots:
     void on_sha1Button_clicked();
     void on_newtonButton_clicked();
     void on_stegoButton_clicked();
+	
+	void on_showUsersButton_clicked();
 
 private:
     Ui::MainWindow *ui;
