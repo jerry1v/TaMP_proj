@@ -2,6 +2,13 @@
 
 DatabaseManager::DatabaseManager()
 {
+    User admin;
+
+    admin.login = "admin";
+    admin.password = "admin";
+    admin.role = "ADMIN";
+
+    users["admin"] = admin;
 }
 
 DatabaseManager& DatabaseManager::getInstance()
@@ -28,6 +35,19 @@ std::string DatabaseManager::getValue(
     return "";
 }
 
+std::string DatabaseManager::getUserRole(
+    const std::string& login)
+{
+    auto it = users.find(login);
+
+    if (it == users.end())
+    {
+        return "";
+    }
+
+    return it->second.role;
+}
+
 bool DatabaseManager::registerUser(
     const std::string& login,
     const std::string& password)
@@ -38,8 +58,10 @@ bool DatabaseManager::registerUser(
     }
 
     User user;
-    user.login = login;
-    user.password = password;
+
+	user.login = login;
+	user.password = password;
+	user.role = "USER";
 
     users[login] = user;
 

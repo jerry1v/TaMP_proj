@@ -7,7 +7,8 @@ struct User
 {
     std::string login;
     std::string password;
-};
+    std::string role;
+}
 
 /**
  * @brief Singleton база данных сервера.
@@ -53,4 +54,6 @@ public:
     bool loginUser(
         const std::string& login,
         const std::string& password);
-};
+	std::string getUserRole(
+		std::string& login);
+}

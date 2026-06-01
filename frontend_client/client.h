@@ -31,6 +31,10 @@ public:
         const QString& password);
 		
 	QString sendNewton(double number);
-};
+	
+	QString currentRole;
+	
+	QString getRole() const;
+}
 
 #endif

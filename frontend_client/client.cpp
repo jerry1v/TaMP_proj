@@ -94,6 +94,17 @@ QString Client::loginUser(
         login +
         " " +
         password);
+		
+	if (response.startsWith("LOGIN_SUCCESS"))
+	{
+		QStringList parts =
+			response.split(" ");
+
+		if (parts.size() > 1)
+		{
+			currentRole = parts[1];
+		}
+	}
 }
 
 QString Client::sendNewton(double number)
@@ -102,3 +113,8 @@ QString Client::sendNewton(double number)
         "NEWTON " +
         QString::number(number));
 }		
+
+QString Client::getRole() const
+{
+    return currentRole;
+}

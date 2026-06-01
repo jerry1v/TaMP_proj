@@ -12,66 +12,13 @@
 #include <winsock2.h>
 #include <thread>
 #include <cmath>
+#include "aes.h"
+#include "sha1.h"
+#include "newton.h"
+#include "stego.h"
 #pragma comment(lib, "ws2_32.lib")
 
 using namespace std;
-
-// =======================
-// Заглушки функций
-// =======================
-
-string aesEncrypt(const string& data)
-{
-    string result = data;
-
-    const string key = "AESKEY";
-
-    for (size_t i = 0; i < result.size(); i++)
-    {
-        result[i] ^= key[i % key.size()];
-    }
-
-    return result;
-}
-
-string sha1Hash(const string& text)
-{
-    unsigned long hash = 0;
-
-    for (char c : text)
-    {
-        hash = hash * 31 + c;
-    }
-
-    return to_string(hash);
-}
-
-string newtonMethod(double number)
-{
-    if (number <= 0)
-    {
-        return "ERROR";
-    }
-
-    double x = number;
-
-    for (int i = 0; i < 20; i++)
-    {
-        x = 0.5 * (x + number / x);
-    }
-
-    return to_string(x);
-}
-
-string hideMessage(const string& data)
-{
-    DatabaseManager::getInstance()
-        .setValue(
-            "hidden_message",
-            data);
-
-    return "MESSAGE_HIDDEN";
-}
 
 // =======================
 // Парсер запросов
@@ -120,9 +67,16 @@ string parseRequest(const string& request)
             DatabaseManager::getInstance()
             .loginUser(login, password);
 
-        return result ?
-            "LOGIN_SUCCESS" :
-            "LOGIN_FAILED";
+        if (!result)
+		{
+			return "LOGIN_FAILED";
+		}
+
+		string role =
+			DatabaseManager::getInstance()
+			.getUserRole(login);
+
+		return "LOGIN_SUCCESS " + role;
     }
 
     if (command == "AES")
