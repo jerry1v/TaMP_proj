@@ -1,6 +1,7 @@
 #include "client.h"
-
+#include <QtCore>
 #include <ws2tcpip.h>
+
 
 #pragma comment(lib, "ws2_32.lib")
 
@@ -85,26 +86,16 @@ QString Client::registerUser(
         password);
 }
 
-QString Client::loginUser(
-    const QString& login,
-    const QString& password)
+QString Client::loginUser(const QString& login, const QString& password)
 {
-    return sendRequest(
-        "LOGIN " +
-        login +
-        " " +
-        password);
-		
-	if (response.startsWith("LOGIN_SUCCESS"))
-	{
-		QStringList parts =
-			response.split(" ");
-
-		if (parts.size() > 1)
-		{
-			currentRole = parts[1];
-		}
-	}
+    QString response = sendRequest("LOGIN " + login + " " + password);
+    if (response.startsWith("LOGIN_SUCCESS"))
+    {
+        QStringList parts = response.split(" ");
+        if (parts.size() > 1)
+            currentRole = parts[1];
+    }
+    return response;
 }
 
 QString Client::sendNewton(double number)
@@ -131,3 +122,10 @@ QString Client::deleteUser(
         "DELETE " +
         login);
 }
+
+QString Client::sendAES(const QString& data)
+{ return sendRequest("AES " + data); }
+QString Client::sendSHA1(const QString& data)
+{ return sendRequest("SHA1 " + data); }
+QString Client::sendStego(const QString& data)
+{ return sendRequest("STEGO " + data); }

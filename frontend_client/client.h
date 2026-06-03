@@ -1,6 +1,7 @@
 #ifndef CLIENT_H
 #define CLIENT_H
 
+#include <QtCore>
 #include <QString>
 #include <winsock2.h>
 
@@ -40,6 +41,9 @@ public:
 
 	QString deleteUser(
 		const QString& login);
-}
+    QString sendAES(const QString& data);
+    QString sendSHA1(const QString& data);
+    QString sendStego(const QString& data);
+};
 
 #endif
