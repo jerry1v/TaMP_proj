@@ -1,0 +1,44 @@
+\doxysection{Database\+Manager Class Reference}
+\hypertarget{class_database_manager}{}\label{class_database_manager}\index{DatabaseManager@{DatabaseManager}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_database_manager_aefa3d6eae7782904f5d758462b573b1e}\label{class_database_manager_aefa3d6eae7782904f5d758462b573b1e} 
+{\bfseries Database\+Manager} (const \doxymbox{\hyperlink{class_database_manager}{Database\+Manager}} \&)=delete
+\item 
+\Hypertarget{class_database_manager_ab5a4c00314aae0887ac7a1495f6b803c}\label{class_database_manager_ab5a4c00314aae0887ac7a1495f6b803c} 
+\doxymbox{\hyperlink{class_database_manager}{Database\+Manager}} \& {\bfseries operator=} (const \doxymbox{\hyperlink{class_database_manager}{Database\+Manager}} \&)=delete
+\item 
+\Hypertarget{class_database_manager_a996510c046216ec129fe6231656d667e}\label{class_database_manager_a996510c046216ec129fe6231656d667e} 
+bool {\bfseries register\+User} (const std::\+string \&login, const std::\+string \&password)
+\item 
+\Hypertarget{class_database_manager_ad721d77c909b41223488543de1ae2c78}\label{class_database_manager_ad721d77c909b41223488543de1ae2c78} 
+bool {\bfseries login\+User} (const std::\+string \&login, const std::\+string \&password)
+\item 
+\Hypertarget{class_database_manager_a1194da38d8f37c7b63cb92404350ee10}\label{class_database_manager_a1194da38d8f37c7b63cb92404350ee10} 
+std::\+string {\bfseries get\+User\+Role} (const std::\+string \&login)
+\item 
+\Hypertarget{class_database_manager_aeae54f5dda3204474ba1aae5dbed6ac9}\label{class_database_manager_aeae54f5dda3204474ba1aae5dbed6ac9} 
+std::\+string {\bfseries get\+Users\+List} ()
+\item 
+\Hypertarget{class_database_manager_ac660aa752a3b447742d6d7832b0197ae}\label{class_database_manager_ac660aa752a3b447742d6d7832b0197ae} 
+bool {\bfseries delete\+User} (const std::\+string \&login)
+\item 
+\Hypertarget{class_database_manager_ae799c5a235d582e5c2370847bf863d54}\label{class_database_manager_ae799c5a235d582e5c2370847bf863d54} 
+bool {\bfseries change\+User\+Role} (const std::\+string \&login, const std::\+string \&new\+Role)
+\item 
+\Hypertarget{class_database_manager_aaf537666c6e6043b1b89660bb6c184b5}\label{class_database_manager_aaf537666c6e6043b1b89660bb6c184b5} 
+int {\bfseries get\+User\+Count} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_database_manager_a40dbc3c1489575c5629b20f8f076cc3a}\label{class_database_manager_a40dbc3c1489575c5629b20f8f076cc3a} 
+static \doxymbox{\hyperlink{class_database_manager}{Database\+Manager}} \& {\bfseries get\+Instance} ()
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+backend\+\_\+server/\+databasemanager.\+h\item 
+backend\+\_\+server/\+databasemanager.\+cpp\end{DoxyCompactItemize}

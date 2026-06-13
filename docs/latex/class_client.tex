@@ -1,0 +1,56 @@
+\doxysection{Client Class Reference}
+\hypertarget{class_client}{}\label{class_client}\index{Client@{Client}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_client_a3d2cabd89d497461bb4604a5014ee75d}\label{class_client_a3d2cabd89d497461bb4604a5014ee75d} 
+{\bfseries Client} (const \doxymbox{\hyperlink{class_client}{Client}} \&)=delete
+\item 
+\Hypertarget{class_client_a4dc1df05decda1789fb3431063afd685}\label{class_client_a4dc1df05decda1789fb3431063afd685} 
+\doxymbox{\hyperlink{class_client}{Client}} \& {\bfseries operator=} (const \doxymbox{\hyperlink{class_client}{Client}} \&)=delete
+\item 
+\Hypertarget{class_client_a872dcd0db96e01a4c035f1808f0247c1}\label{class_client_a872dcd0db96e01a4c035f1808f0247c1} 
+bool {\bfseries connect\+To\+Server} ()
+\item 
+\Hypertarget{class_client_adb70f8af5f71b5e09c4a0a8f6da3912c}\label{class_client_adb70f8af5f71b5e09c4a0a8f6da3912c} 
+bool {\bfseries is\+Connected} () const
+\item 
+\Hypertarget{class_client_a0976c652f6f3fb7af98b210fe4bba840}\label{class_client_a0976c652f6f3fb7af98b210fe4bba840} 
+QString {\bfseries send\+Request} (const QString \&request)
+\item 
+\Hypertarget{class_client_af882a7afb10f9dcb0d0dfb8e2303c2a1}\label{class_client_af882a7afb10f9dcb0d0dfb8e2303c2a1} 
+QString {\bfseries register\+User} (const QString \&login, const QString \&password)
+\item 
+\Hypertarget{class_client_a2dfa46af0ac8506397f7224b62ed8ac2}\label{class_client_a2dfa46af0ac8506397f7224b62ed8ac2} 
+QString {\bfseries login\+User} (const QString \&login, const QString \&password)
+\item 
+\Hypertarget{class_client_acd05d3f1eee066f08c67974f64efc2f3}\label{class_client_acd05d3f1eee066f08c67974f64efc2f3} 
+QString {\bfseries get\+Users\+List} ()
+\item 
+\Hypertarget{class_client_a748634b83e224642b45ef97e56652d6d}\label{class_client_a748634b83e224642b45ef97e56652d6d} 
+QString {\bfseries delete\+User} (const QString \&login)
+\item 
+\Hypertarget{class_client_a3551e98208643390b5ad13148744f922}\label{class_client_a3551e98208643390b5ad13148744f922} 
+QString {\bfseries change\+User\+Role} (const QString \&login, const QString \&new\+Role)
+\item 
+\Hypertarget{class_client_aa3645c51c21453ad8bfc05ec661895a6}\label{class_client_aa3645c51c21453ad8bfc05ec661895a6} 
+QString {\bfseries get\+User\+Count} ()
+\item 
+\Hypertarget{class_client_aae29dc1d8eaa7d220b3874cbe1406f25}\label{class_client_aae29dc1d8eaa7d220b3874cbe1406f25} 
+QString {\bfseries get\+Current\+Role} () const
+\item 
+\Hypertarget{class_client_a421d106ce531790ac498fdcaf3ae21dc}\label{class_client_a421d106ce531790ac498fdcaf3ae21dc} 
+QString {\bfseries get\+Current\+Login} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_client_a718af1895e51cccfe90ca590f2f462c7}\label{class_client_a718af1895e51cccfe90ca590f2f462c7} 
+static \doxymbox{\hyperlink{class_client}{Client}} \& {\bfseries get\+Instance} ()
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+frontend\+\_\+client/\+client.\+h\item 
+frontend\+\_\+client/\+client.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,73 @@
+\doxysection{mainwindow.\+h}
+\hypertarget{mainwindow_8h_source}{}\label{mainwindow_8h_source}\index{frontend\_client/mainwindow.h@{frontend\_client/mainwindow.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#ifndef\ WIN32\_LEAN\_AND\_MEAN}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ WIN32\_LEAN\_AND\_MEAN}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <QMainWindow>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <QLabel>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <QLineEdit>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <QPushButton>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <QTextEdit>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <QTableWidget>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <QMenuBar>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <QStatusBar>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <QDialog>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_admin_panel}{AdminPanel}};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }MainWindow\ :\ \textcolor{keyword}{public}\ QMainWindow}
+\DoxyCodeLine{00020\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{explicit}\ MainWindow(QWidget*\ parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00025\ \ \ \ \ \string~MainWindow();}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ onLoginClicked();}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ onRegisterClicked();}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ onNewtonClicked();}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ onAesClicked();}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ onSha1Clicked();}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ onStegoClicked();}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ onShowUsersClicked();}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ setupUi();}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ setupMenu();}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ setupConnections();}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ updateButtonStates(\textcolor{keywordtype}{bool}\ loggedIn,\ \textcolor{keywordtype}{bool}\ isAdmin);}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ appendResult(\textcolor{keyword}{const}\ QString\&\ text);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{comment}{//\ ──\ Виджеты\ (точно\ как\ в\ QT\ Designer\ скриншоте)\ ──────────}}
+\DoxyCodeLine{00044\ \ \ \ \ QWidget*\ \ \ \ \ \ centralwidget;}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ QPushButton*\ \ aesButton;}
+\DoxyCodeLine{00047\ \ \ \ \ QLabel*\ \ \ \ \ \ \ labelLogin;}
+\DoxyCodeLine{00048\ \ \ \ \ QLabel*\ \ \ \ \ \ \ labelPassword;}
+\DoxyCodeLine{00049\ \ \ \ \ QPushButton*\ \ loginButton;}
+\DoxyCodeLine{00050\ \ \ \ \ QLineEdit*\ \ \ \ loginEdit;}
+\DoxyCodeLine{00051\ \ \ \ \ QPushButton*\ \ newtonButton;}
+\DoxyCodeLine{00052\ \ \ \ \ QLineEdit*\ \ \ \ passwordEdit;}
+\DoxyCodeLine{00053\ \ \ \ \ QPushButton*\ \ registerButton;}
+\DoxyCodeLine{00054\ \ \ \ \ QTextEdit*\ \ \ \ resultText;}
+\DoxyCodeLine{00055\ \ \ \ \ QPushButton*\ \ sha1Button;}
+\DoxyCodeLine{00056\ \ \ \ \ QPushButton*\ \ showUsersButton;}
+\DoxyCodeLine{00057\ \ \ \ \ QPushButton*\ \ stegoButton;}
+\DoxyCodeLine{00058\ \ \ \ \ QTableWidget*\ tableUsers;}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ QMenuBar*\ \ \ \ \ menubar;}
+\DoxyCodeLine{00061\ \ \ \ \ QStatusBar*\ \ \ statusbar;}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{comment}{//\ ──\ Состояние\ ─────────────────────────────────────────────}}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ isLoggedIn;}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ isAdmin;}
+\DoxyCodeLine{00066\ \ \ \ \ QString\ \ \ \ \ \ \ currentLogin;}
+\DoxyCodeLine{00067\ \};}
+
+\end{DoxyCode}

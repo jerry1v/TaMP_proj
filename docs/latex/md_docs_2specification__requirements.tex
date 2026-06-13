@@ -1,0 +1,76 @@
+\chapter{Спецификация требований }
+\hypertarget{md_docs_2specification__requirements}{}\label{md_docs_2specification__requirements}\index{Спецификация требований@{Спецификация требований}}
+\label{md_docs_2specification__requirements_autotoc_md0}%
+\Hypertarget{md_docs_2specification__requirements_autotoc_md0}%
+\hypertarget{md_docs_2specification__requirements_autotoc_md1}{}\doxysection{\texorpdfstring{1. Назначение системы}{1. Назначение системы}}\label{md_docs_2specification__requirements_autotoc_md1}
+Система предназначена для выполнения следующих функций:\+
+
+
+\begin{DoxyItemize}
+\item регистрация пользователей;
+\item авторизация пользователей;
+\item шифрование данных алгоритмом AES;
+\item получение хеша SHA1;
+\item вычисление квадратного корня методом Ньютона;
+\item внедрение сообщения в музыкальный файл;
+\item взаимодействие клиента и сервера по сети.
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md_docs_2specification__requirements_autotoc_md3}{}\doxysection{\texorpdfstring{2. Функциональные требования}{2. Функциональные требования}}\label{md_docs_2specification__requirements_autotoc_md3}
+\hypertarget{md_docs_2specification__requirements_autotoc_md4}{}\doxysubsection{\texorpdfstring{FR-\/01 Регистрация}{FR-\/01 Регистрация}}\label{md_docs_2specification__requirements_autotoc_md4}
+Система должна обеспечивать регистрацию пользователя по логину и паролю.\hypertarget{md_docs_2specification__requirements_autotoc_md5}{}\doxysubsection{\texorpdfstring{FR-\/02 Авторизация}{FR-\/02 Авторизация}}\label{md_docs_2specification__requirements_autotoc_md5}
+Система должна обеспечивать авторизацию пользователя по логину и паролю.\hypertarget{md_docs_2specification__requirements_autotoc_md6}{}\doxysubsection{\texorpdfstring{FR-\/03 AES}{FR-\/03 AES}}\label{md_docs_2specification__requirements_autotoc_md6}
+Система должна выполнять шифрование переданных данных.\hypertarget{md_docs_2specification__requirements_autotoc_md7}{}\doxysubsection{\texorpdfstring{FR-\/04 SHA1}{FR-\/04 SHA1}}\label{md_docs_2specification__requirements_autotoc_md7}
+Система должна вычислять хеш переданных данных.\hypertarget{md_docs_2specification__requirements_autotoc_md8}{}\doxysubsection{\texorpdfstring{FR-\/05 Метод Ньютона}{FR-\/05 Метод Ньютона}}\label{md_docs_2specification__requirements_autotoc_md8}
+Система должна вычислять квадратный корень числа методом Ньютона.\hypertarget{md_docs_2specification__requirements_autotoc_md9}{}\doxysubsection{\texorpdfstring{FR-\/06 Стеганография}{FR-\/06 Стеганография}}\label{md_docs_2specification__requirements_autotoc_md9}
+Система должна обеспечивать внедрение сообщения в музыкальный файл.\hypertarget{md_docs_2specification__requirements_autotoc_md10}{}\doxysubsection{\texorpdfstring{FR-\/07 Работа по сети}{FR-\/07 Работа по сети}}\label{md_docs_2specification__requirements_autotoc_md10}
+Клиент должен иметь возможность отправлять запросы серверу и получать ответы.\hypertarget{md_docs_2specification__requirements_autotoc_md11}{}\doxysubsection{\texorpdfstring{FR-\/08 Многопользовательская работа}{FR-\/08 Многопользовательская работа}}\label{md_docs_2specification__requirements_autotoc_md11}
+Сервер должен поддерживать подключение нескольких клиентов одновременно.
+
+\DoxyHorRuler{0}
+\hypertarget{md_docs_2specification__requirements_autotoc_md13}{}\doxysection{\texorpdfstring{3. Нефункциональные требования}{3. Нефункциональные требования}}\label{md_docs_2specification__requirements_autotoc_md13}
+\hypertarget{md_docs_2specification__requirements_autotoc_md14}{}\doxysubsection{\texorpdfstring{NFR-\/01 Производительность}{NFR-\/01 Производительность}}\label{md_docs_2specification__requirements_autotoc_md14}
+Время обработки запроса не должно превышать 5 секунд.\hypertarget{md_docs_2specification__requirements_autotoc_md15}{}\doxysubsection{\texorpdfstring{NFR-\/02 Надёжность}{NFR-\/02 Надёжность}}\label{md_docs_2specification__requirements_autotoc_md15}
+Сервер должен продолжать работу при отключении клиента.\hypertarget{md_docs_2specification__requirements_autotoc_md16}{}\doxysubsection{\texorpdfstring{NFR-\/03 Удобство использования}{NFR-\/03 Удобство использования}}\label{md_docs_2specification__requirements_autotoc_md16}
+Клиентское приложение должно иметь графический интерфейс.\hypertarget{md_docs_2specification__requirements_autotoc_md17}{}\doxysubsection{\texorpdfstring{NFR-\/04 Совместимость}{NFR-\/04 Совместимость}}\label{md_docs_2specification__requirements_autotoc_md17}
+Программное обеспечение должно работать под операционной системой Windows.\hypertarget{md_docs_2specification__requirements_autotoc_md18}{}\doxysubsection{\texorpdfstring{NFR-\/05 Документирование}{NFR-\/05 Документирование}}\label{md_docs_2specification__requirements_autotoc_md18}
+Исходный код должен содержать комментарии Doxygen.
+
+\DoxyHorRuler{0}
+\hypertarget{md_docs_2specification__requirements_autotoc_md20}{}\doxysection{\texorpdfstring{4. Ограничения}{4. Ограничения}}\label{md_docs_2specification__requirements_autotoc_md20}
+
+\begin{DoxyItemize}
+\item Язык программирования:\+ C++
+\item Сетевое взаимодействие:\+ TCP/\+\+IP
+\item Клиентский интерфейс:\+ Qt
+\item База данных:\+ Singleton-\/хранилище в памяти
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md_docs_2specification__requirements_autotoc_md22}{}\doxysection{\texorpdfstring{5. Роли пользователей}{5. Роли пользователей}}\label{md_docs_2specification__requirements_autotoc_md22}
+\hypertarget{md_docs_2specification__requirements_autotoc_md23}{}\doxysubsection{\texorpdfstring{Пользователь}{Пользователь}}\label{md_docs_2specification__requirements_autotoc_md23}
+Может:\+
+\begin{DoxyItemize}
+\item зарегистрироваться;
+\item войти в систему;
+\item использовать функции AES;
+\item использовать функции SHA1;
+\item использовать метод Ньютона;
+\item использовать стеганографию.
+\end{DoxyItemize}\hypertarget{md_docs_2specification__requirements_autotoc_md24}{}\doxysubsection{\texorpdfstring{Администратор}{Администратор}}\label{md_docs_2specification__requirements_autotoc_md24}
+Может:\+
+\begin{DoxyItemize}
+\item просматривать список пользователей;
+\item управлять пользователями;
+\item получать информацию о работе системы.
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md_docs_2specification__requirements_autotoc_md26}{}\doxysection{\texorpdfstring{6. Требования к безопасности}{6. Требования к безопасности}}\label{md_docs_2specification__requirements_autotoc_md26}
+
+\begin{DoxyItemize}
+\item доступ к системе осуществляется после авторизации;
+\item пароль пользователя хранится отдельно от логики клиента;
+\item обмен данными осуществляется через сервер. 
+\end{DoxyItemize}
